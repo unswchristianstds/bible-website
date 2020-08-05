@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <!-- UIkit & Custom CSS -->
+      <link rel="stylesheet" type="text/css" href="styles/style.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/css/uikit.min.css" />
+
+      <!-- UIkit & Custom JS -->
+      <script type="text/javascript" src="scripts/script.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/js/uikit.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/js/uikit-icons.min.js"></script>
+
+      <!-- Google JQuery -->
+      <script type="text/javascript" src="scripts/jquery-3.4.1.min.js"></script>
+
+      <title>Bible</title>
+  </head>
+
+  <body>
+    Set up reading plan
+    Start date:
+    End date:
+
+    Books:
+
+    Pace:
+    <script>
+        var startDate = new Date(2020, 8, 14);
+        var reading_plan = [];
+        $.getJSON('reading_plan/nt_data.json', function(data) {
+            console.log(data);
+        });
+    </script>
+  </body>
+</html>

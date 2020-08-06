@@ -10,7 +10,7 @@ h1 {
 /* Navbar */
 .uk-navbar-container {
     height: 50px;
-    background-color: rgb(48, 65, 72, 1.0) !important;
+    background-color:#4F8454 !important;
 }
 
 .uk-navbar-nav>* {
@@ -65,16 +65,16 @@ button:focus {
     font-size: 14px;
     height: 50px;
     padding: 0px;
-    background-color: rgb(79, 91, 98, 1.0);
+    background-color: #4B6C4D;
     color: white;
 }
 
 .top_button:hover, .top_button:focus {
-    background-color: rgb(48, 65, 72, 1.0);
+    background-color: #47764B;
 }
 
 .top_button.active {
-    background-color: rgb(48, 65, 72, 1.0);
+    background-color: #47764B;
 }
 
 /* Grid */

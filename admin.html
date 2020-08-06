@@ -28,10 +28,49 @@
 
     Pace:
     <script>
-        var startDate = new Date(2020, 8, 14);
-        var reading_plan = [];
+        var startDate = new Date(2020, 8, 14, 5, 0, 0);
+        var readingPlan = [];
+        var book;
+        var chapters;
         $.getJSON('reading_plan/nt_data.json', function(data) {
+            for (var i = 0; i < data.length; i++) {
+                book = data[i]["name"];
+                chapters = data[i]["chapters"];
+                for (var j = 1; j <= chapters; j++) {
+                    if (startDate.getDay() == 0) {
+                        j = j - 1
+                        var reading = "Catch up or rest";
+                    } else {
+                        var reading = book + " " + j.toString();
+                    }
+                    var plan = {"reading": reading, "date": startDate.toISOString()};
+                    readingPlan.push(plan)
+                    startDate.setDate(startDate.getDate() + 1);
+                }
+            }
+            console.log(JSON.stringify(readingPlan));
+        });
+
+        var startDate2 = new Date(2020, 8, 14, 5, 0, 0);
+        $.getJSON('reading_plan/ot_data.json', function(data) {
             console.log(data);
+            var i = 0;
+            //debugger
+            for (var j = 0; j < data.length; j++) {
+                book = data[j]["name"];
+                chapters = data[j]["chapters"];
+                for (var k = 1; k <= chapters; k++) {
+                    if (i >= readingPlan.length) {break;}
+                    if (startDate2.getDay() == 0) {
+                        k = k - 1
+                    } else {
+                        readingPlan[i]["reading"] = readingPlan[i]["reading"] + "; " + book + " " + k.toString();
+                    }
+                    startDate2.setDate(startDate2.getDate() + 1);
+                    i += 1;
+                }
+            }
+            console.log(JSON.stringify(readingPlan));
         });
     </script>
   </body>

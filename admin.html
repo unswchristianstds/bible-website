@@ -32,6 +32,9 @@
         var readingPlan = [];
         var book;
         var chapters;
+
+        var b = 0
+        var brothers = ["Paul", "Carlos", "Andrew", "Pablo", "Brian", "Curtis", "Eric", "Hiram", "Allen", "David", "Marc"]
         $.getJSON('reading_plan/nt_data.json', function(data) {
             for (var i = 0; i < data.length; i++) {
                 book = data[i]["name"];
@@ -41,7 +44,8 @@
                         j = j - 1
                         var reading = "Catch up or rest";
                     } else {
-                        var reading = book + " " + j.toString();
+                        var reading = book + " " + j.toString() + "; " + brothers[b % brothers.length];
+                        b += 1;
                     }
                     var plan = {"reading": reading, "date": startDate.toISOString()};
                     readingPlan.push(plan)

@@ -45,11 +45,16 @@
                         var reading = "Catch up or rest";
                         var brother = "---";
                     } else {
-                        var reading = book + " " + j.toString() + "; ";
+                        var reading = book + " " + j.toString();
                         var brother = brothers[b % brothers.length];
                         b += 1;
                     }
-                    var plan = {"reading": reading, "brother": brother, "date": startDate.toISOString()};
+                    var submissionDate = new Date(new Date().setDate(new Date(startDate).getDate() - 7));
+                    submissionDate = (submissionDate.getMonth() + 1) + '/' + submissionDate.getDate() + '/' + submissionDate.getFullYear();
+                    var uploadDate = new Date(new Date().setDate(new Date(startDate).getDate() - 3));
+                    var publishDate = (startDate.getMonth() + 1) + '/' + startDate.getDate() + '/' + startDate.getFullYear();
+                    uploadDate = (uploadDate.getMonth() + 1) + '/' + uploadDate.getDate() + '/' + uploadDate.getFullYear();
+                    var plan = {"reading": reading, "brother": brother, "submission date": submissionDate, "upload date": uploadDate, "publish date": publishDate};
                     readingPlan.push(plan)
                     startDate.setDate(startDate.getDate() + 1);
                 }
@@ -59,7 +64,7 @@
 
         var startDate2 = new Date(2020, 8, 14, 5, 0, 0);
         $.getJSON('reading_plan/ot_data.json', function(data) {
-            console.log(data);
+            //console.log(data);
             var i = 0;
             //debugger
             for (var j = 0; j < data.length; j++) {
@@ -76,7 +81,7 @@
                     i += 1;
                 }
             }
-            console.log(JSON.stringify(readingPlan));
+            //console.log(JSON.stringify(readingPlan));
         });
     </script>
   </body>

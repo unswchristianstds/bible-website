@@ -43,11 +43,13 @@
                     if (startDate.getDay() == 0) {
                         j = j - 1
                         var reading = "Catch up or rest";
+                        var brother = "";
                     } else {
-                        var reading = book + " " + j.toString() + "; " + brothers[b % brothers.length];
+                        var reading = book + " " + j.toString() + "; ";
+                        var brother = brothers[b % brothers.length];
                         b += 1;
                     }
-                    var plan = {"reading": reading, "date": startDate.toISOString()};
+                    var plan = {"reading": reading, "brother": brother, "date": startDate.toISOString()};
                     readingPlan.push(plan)
                     startDate.setDate(startDate.getDate() + 1);
                 }

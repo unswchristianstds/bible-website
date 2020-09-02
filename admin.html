@@ -44,16 +44,19 @@
                         j = j - 1
                         var reading = "Catch up or rest";
                         var brother = "---";
+                        var submissionDate = "---";
+                        var uploadDate = "---";
+                        var publishDate = "---";
                     } else {
                         var reading = book + " " + j.toString();
                         var brother = brothers[b % brothers.length];
                         b += 1;
+                        var submissionDate = new Date(new Date(startDate).setDate(new Date(startDate).getDate() - 7));
+                        submissionDate = (submissionDate.getMonth() + 1) + '/' + submissionDate.getDate() + '/' + submissionDate.getFullYear();
+                        var uploadDate = new Date(new Date(startDate).setDate(new Date(startDate).getDate() - 3));
+                        uploadDate = (uploadDate.getMonth() + 1) + '/' + uploadDate.getDate() + '/' + uploadDate.getFullYear();
+                        var publishDate = (startDate.getMonth() + 1) + '/' + startDate.getDate() + '/' + startDate.getFullYear();
                     }
-                    var submissionDate = new Date(new Date(startDate).setDate(new Date(startDate).getDate() - 7));
-                    submissionDate = (submissionDate.getMonth() + 1) + '/' + submissionDate.getDate() + '/' + submissionDate.getFullYear();
-                    var uploadDate = new Date(new Date(startDate).setDate(new Date(startDate).getDate() - 3));
-                    uploadDate = (uploadDate.getMonth() + 1) + '/' + uploadDate.getDate() + '/' + uploadDate.getFullYear();
-                    var publishDate = (startDate.getMonth() + 1) + '/' + startDate.getDate() + '/' + startDate.getFullYear();
                     var plan = {"reading": reading, "brother": brother, "submission date": submissionDate, "upload date": uploadDate, "publish date": publishDate};
                     readingPlan.push(plan)
                     startDate.setDate(startDate.getDate() + 1);

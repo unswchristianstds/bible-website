@@ -70,11 +70,11 @@ button:focus {
 }
 
 .top_button:hover, .top_button:focus {
-    background-color: #47764B;
+    background-color: #1f3228;
 }
 
 .top_button.active {
-    background-color: #47764B;
+    background-color: #1f3228;
 }
 
 /* Grid */

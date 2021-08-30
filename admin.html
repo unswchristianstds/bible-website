@@ -46,7 +46,7 @@
                         //var brother = "---";
                         //var submissionDate = "---";
                         //var uploadDate = "---";
-                        var publishDate = (startDate.getMonth() + 1) + '/' + startDate.getDate() + '/' + startDate.getFullYear();
+                        //var publishDate = (startDate.getMonth() + 1) + '/' + startDate.getDate() + '/' + startDate.getFullYear();
                     } else {
                         var reading = book + " " + j.toString();
                         //var brother = brothers[b % brothers.length];
@@ -55,9 +55,9 @@
                         //submissionDate = (submissionDate.getMonth() + 1) + '/' + submissionDate.getDate() + '/' + submissionDate.getFullYear();
                         //var uploadDate = new Date(new Date(startDate).setDate(new Date(startDate).getDate() - 3));
                         //uploadDate = (uploadDate.getMonth() + 1) + '/' + uploadDate.getDate() + '/' + uploadDate.getFullYear();
-                        var publishDate = (startDate.getMonth() + 1) + '/' + startDate.getDate() + '/' + startDate.getFullYear();
+                        //var publishDate = (startDate.getMonth() + 1) + '/' + startDate.getDate() + '/' + startDate.getFullYear();
                     }
-                    var plan = {"reading": reading, "date": publishDate};
+                    var plan = {"reading": reading, "date": startDate.toISOString()};
                     readingPlan.push(plan)
                     startDate.setDate(startDate.getDate() + 1);
                 }

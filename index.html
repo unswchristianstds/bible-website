@@ -29,7 +29,7 @@
         "reading": "Genesis 1; 2_Kings 1-4; Matthew 1:1-14; 1_John 2:2-3:3"
       */
       var today = new Date();
-      $.getJSON('reading_plan/challenge2.json', function(data) {
+      $.getJSON('reading_plan/reading_plan_sub.json', function(data) {
           console.log(data);
           for (var i = 0; i < data.length; i++) {
               /* Match Today's Date */
